@@ -29,7 +29,6 @@ export default function Dictionary() {
 
   return (
     <div className="dictionary-container">
-      <h1>Dictionary App</h1>
       <input
         type="text"
         placeholder="Enter a word..."
@@ -40,7 +39,8 @@ export default function Dictionary() {
 
       <div className="result">
         <h3>Definition:</h3>
-        {result && <p>{result}</p>}
+        {/* Paragraph always present, even if empty */}
+        <p>{result}</p>
       </div>
     </div>
   );
