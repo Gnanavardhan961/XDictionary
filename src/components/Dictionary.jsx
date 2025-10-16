@@ -12,7 +12,7 @@ export default function Dictionary() {
 
   const handleSearch = () => {
     if (!searchTerm.trim()) {
-      setResult("");
+      setResult("Word not found in the dictionary.");
       return;
     }
 
@@ -29,6 +29,7 @@ export default function Dictionary() {
 
   return (
     <div className="dictionary-container">
+      <h1>Dictionary App</h1>
       <input
         type="text"
         placeholder="Enter a word..."
@@ -39,8 +40,7 @@ export default function Dictionary() {
 
       <div className="result">
         <h3>Definition:</h3>
-        {/* Paragraph always present, even if empty */}
-        <p>{result}</p>
+        {result && <p>{result}</p>}
       </div>
     </div>
   );
