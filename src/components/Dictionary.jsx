@@ -29,6 +29,7 @@ export default function Dictionary() {
 
   return (
     <div className="dictionary-container">
+      <h1>Dictionary App</h1>
       <input
         type="text"
         placeholder="Enter a word..."
