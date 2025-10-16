@@ -11,9 +11,15 @@ export default function Dictionary() {
   const [result, setResult] = useState("");
 
   const handleSearch = () => {
+    if (!searchTerm.trim()) {
+      setResult("");
+      return;
+    }
+
     const found = dictionary.find(
       (item) => item.word.toLowerCase() === searchTerm.trim().toLowerCase()
     );
+
     if (found) {
       setResult(found.meaning);
     } else {
@@ -31,18 +37,10 @@ export default function Dictionary() {
       />
       <button onClick={handleSearch}>Search</button>
 
-      {result && (
-        <div className="result">
-          {result === "Word not found in the dictionary." ? (
-            <p>{result}</p>
-          ) : (
-            <>
-              <h3>Definition:</h3>
-              <p>{result}</p>
-            </>
-          )}
-        </div>
-      )}
+      <div className="result">
+        <h3>Definition:</h3>
+        {result && <p>{result}</p>}
+      </div>
     </div>
   );
 }
